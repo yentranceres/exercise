@@ -1,0 +1,18 @@
+.container {
+    margin: 20px;
+}
+
+.list-item li {
+    position: relative;
+}
+
+.btn-close {
+    position: absolute;
+    left: 390px;
+    color: #761c19;
+}
+
+.warning {
+    color: #c9302c;
+    display: none;
+}
