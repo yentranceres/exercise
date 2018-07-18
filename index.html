@@ -9,25 +9,21 @@
 
 
 <body>
-    <div class="container">
-        <form class="form-inline">
-            <div class="input-group to-do-list">
-               <input type="text" class="form-control" placeholder="Enter your list" aria-describedby="basic-addon1" value="">
-             </div>
+<div class="container">
+    <form class="form-inline">
+        <div class="input-group to-do-list">
+            <input type="text" class="form-control" placeholder="Enter your list" aria-describedby="basic-addon1"
+                   value="">
+        </div>
 
-            <button type="button" class="btn btn-default btn-submit"> DONE </button>
-            <p class="warning">Please enter your list</p>
-        </form>
+        <button type="button" class="btn btn-default btn-submit"> DONE</button>
+        <p class="warning">Please enter your list</p>
+    </form>
 
 
-        <div >
-            <ol class="list-item"></ol>
+    <div>
+        <ol class="list-item"></ol>
     </div>
-
-
-
-    </div>
-
 
 
     <footer>
@@ -35,13 +31,13 @@
         <script src="js/bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
-                $(".btn-submit").click(function() {
+                $(".btn-submit").click(function () {
                     validationForm();
                 });
 
-                $(document).keypress(function(e) {
-                    if(e.which == 13) {
-                       validationForm();
+                $(document).keypress(function (e) {
+                    if (e.which == 13) {
+                        validationForm();
                     }
                 });
 
@@ -52,20 +48,18 @@
                     }
                     else {
                         $(".warning").hide();
-                        $(".list-item").append("<li>"+value+"<a class='btn-close' href='#'><i class='glyphicon glyphicon-remove'></i></a></li>");
+                        $(".list-item").append("<li>" + value + "<a class='btn-close' href='#'><i class='glyphicon glyphicon-remove'></i></a></li>");
                         $('input:text').val("")
 
-                        $(".btn-close").click(function(){
+                        $(".btn-close").click(function () {
                             $(this).parents("li").remove();
                         });
                     }
                 }
 
             })
-
-
         </script>
-
     </footer>
+</div>
 </body>
 </html>
