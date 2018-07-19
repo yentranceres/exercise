@@ -9,20 +9,48 @@
 
 
 <body>
-<div class="container">
-    <form class="form-inline">
-        <div class="input-group to-do-list">
-            <input type="text" class="form-control" placeholder="Enter your list" aria-describedby="basic-addon1"
-                   value="">
+<div class="container-fluid">
+    <div class="container top-header">
+        <div class="row header-input">
+            <h1 class="title-input">TO DO LIST</h1>
+            <form class="form-inline">
+                <div class="input-group to-do-list">
+                    <input class="form-control" id="input-control" placeholder="Write something here"
+                           aria-describedby="basic-addon1"
+                           value="">
+                </div>
+
+                <button type="button" class="btn btn-default btn-submit"> ADD</button>
+
+                <div class="validation">
+                    <p class="warning">Please input something</p>
+                </div>
+            </form>
+
+                <div>
+                    <div class="control-time">
+                        <label for="appt-time">Select time:</label>
+                        <input type="date" id="appt-time" name="appt-time" value="" />
+                    </div>
+
+                </div>
+
         </div>
+    </div>
 
-        <button type="button" class="btn btn-default btn-submit"> DONE</button>
-        <p class="warning">Please enter your list</p>
-    </form>
+    <div class="container your-list">
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <h3 class="title-list">Draft List</h3>
+                <ol class="list-item-draft"></ol>
+            </div>
 
+            <div class="col-xs-6 col-md-6">
+                <h3 class="title-list">Completed List</h3>
+                <ol class="list-item-complete"></ol>
+            </div>
 
-    <div>
-        <ol class="list-item"></ol>
+        </div>
     </div>
 
 
@@ -41,25 +69,56 @@
                     }
                 });
 
+                $(document).on('click', '.action-remove', function () {
+                    $(this).closest('li').remove();
+                });
+
+                $(document).on('click', '.action-complete', function () {
+                    $(this).closest('li').appendTo(".list-item-complete");
+                    $(this).hide('action-complete')
+                });
+
+                // There are functions.
                 function validationForm() {
                     var value = $('input:text').val();
+
+                    var localdate = $('#appt-time').val();
+
+                    /*var currentdate = new Date();
+                    var localtime = "Wrote: " + currentdate.getDate() + "/"
+                        + (currentdate.getMonth()+1) + "/"
+                        + currentdate.getFullYear() + " - "
+                        + currentdate.getHours() + ":"
+                        + currentdate.getMinutes() + ":"
+                        + currentdate.getSeconds();*/
+
+
                     if (value == "") {
-                        $(".warning").show();
+                        $(".warning").slideDown("slow").css('display', 'inline-block');
+                        $("#input-control").addClass("error");
                     }
                     else {
-                        $(".warning").hide();
-                        $(".list-item").append("<li>" + value + "<a class='btn-close' href='#'><i class='glyphicon glyphicon-remove'></i></a></li>");
-                        $('input:text').val("")
 
-                        $(".btn-close").click(function () {
-                            $(this).parents("li").remove();
-                        });
+                        $(".warning").hide();
+                        $(".list-item-draft").append("<li>"
+                            + "<div class='body-content'>"
+                            + "<p class='content-list'>" + value + "</p>"
+                            + "<div>"
+                            + "<a class='action-complete' href='#'><i class='glyphicon glyphicon-ok icon-complete'></i></a>"
+                            + "<a class='action-remove' href='#'><i class='glyphicon glyphicon-remove icon-delete'></i></a>"
+                            + "</div>"
+                            + "</div>"
+                            + "<p class='date-list'>" + localdate + "</p>"
+                            //    + localtime
+                            + "</li>");
+                        $('input:text').val("");
+                        $('#appt-time').val("");
                     }
                 }
-
-            })
+            });
         </script>
     </footer>
+
 </div>
 </body>
 </html>

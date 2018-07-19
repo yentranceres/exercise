@@ -1,21 +1,143 @@
-.container {
-    margin: 20px;
+.top-header {
+    margin-top: 20px;
 }
 
-.list-item li {
-    position: relative;
+.header-input {
+    background: #e3e3e3;
+    text-align: center;
 }
 
-.btn-close {
-    position: absolute;
-    left: 390px;
-    color: #761c19;
+.title-input {
+    font-weight: bold;
+}
+
+/*.list-item li p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}*/
+
+.action {
+    display: inline-flex;
+    text-decoration: none;
+}
+
+.action:hover {
+    text-decoration: none;
+}
+
+.icon-delete {
+    color: #c9302c;
+    margin: 2px;
+}
+
+.icon-complete {
+    color: #4cae4c;
+    margin: 2px;
+
 }
 
 .warning {
-    color: #c9302c;
+    color: #a94442;
+    display: none;
+    width: 180px;
+    text-align: center;
+    margin-top: 2px;
+    font-style: italic;
     display: none;
 }
 
+.validation {
+    height: 25px;
+}
 
+.btn-submit {
+    background: #4cae4c;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background: white;
+    color: #4cae4c;
+}
+
+.btn-submit:focus {
+    background: white;
+    color: #4cae4c;
+}
+
+.btn-submit:active {
+    background: white;
+    color: #4cae4c;
+}
+
+
+.error {
+    border-color: #c9302c;
+}
+
+.list-item-complete li, .list-item-draft li {
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.list-item-complete li:last-child, .list-item-draft li:last-child {
+    border-bottom: none;
+}
+
+#input-control {
+    width: 450px;
+}
+
+.title-list {
+    text-align: center;
+    border: 1px solid transparent;
+    background: #f7f7f7;
+    border-radius: 5px;
+    display: block;
+}
+
+.content-list {
+    width: 92%;
+    margin: 10px 0;
+}
+
+.body-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.at-completed {
+    display: none;
+}
+
+/*.localtime {
+    text-align: right;
+    font-style: italic;
+    font-size: 10px;
+    color: #9d9d9d;
+}*/
+
+#appt-time {
+    border: 1px solid #9d9d9d;
+    border-radius: 3px;
+}
+
+.date-list {
+    font-size: 10px;
+    text-align: right;
+    font-style: italic;
+    color: #9d9d9d;
+}
+
+.control-time {
+    margin-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+    [class*="col-"] {
+        width: 100%;
+        font-size: 20px;
+    }
+}
 
