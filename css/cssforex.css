@@ -87,6 +87,8 @@
 
 #input-control {
     width: 450px;
+    border: 1px solid #9d9d9d;
+    border-radius: 3px;
 }
 
 .title-list {

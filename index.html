@@ -5,6 +5,7 @@
     <title>Example</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/cssforex.css">
+
 </head>
 
 
@@ -27,13 +28,13 @@
                 </div>
             </form>
 
-                <div>
-                    <div class="control-time">
-                        <label for="appt-time">Select time:</label>
-                        <input type="date" id="appt-time" name="appt-time" value="" />
-                    </div>
-
+            <div>
+                <div class="control-time">
+                    <label for="appt-time">Select time:</label>
+                    <input type="date" id="appt-time" name="appt-time" value=""/>
                 </div>
+
+            </div>
 
         </div>
     </div>
@@ -49,76 +50,35 @@
                 <h3 class="title-list">Completed List</h3>
                 <ol class="list-item-complete"></ol>
             </div>
-
         </div>
     </div>
-
-
-    <footer>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $(".btn-submit").click(function () {
-                    validationForm();
-                });
-
-                $(document).keypress(function (e) {
-                    if (e.which == 13) {
-                        validationForm();
-                    }
-                });
-
-                $(document).on('click', '.action-remove', function () {
-                    $(this).closest('li').remove();
-                });
-
-                $(document).on('click', '.action-complete', function () {
-                    $(this).closest('li').appendTo(".list-item-complete");
-                    $(this).hide('action-complete')
-                });
-
-                // There are functions.
-                function validationForm() {
-                    var value = $('input:text').val();
-
-                    var localdate = $('#appt-time').val();
-
-                    /*var currentdate = new Date();
-                    var localtime = "Wrote: " + currentdate.getDate() + "/"
-                        + (currentdate.getMonth()+1) + "/"
-                        + currentdate.getFullYear() + " - "
-                        + currentdate.getHours() + ":"
-                        + currentdate.getMinutes() + ":"
-                        + currentdate.getSeconds();*/
-
-
-                    if (value == "") {
-                        $(".warning").slideDown("slow").css('display', 'inline-block');
-                        $("#input-control").addClass("error");
-                    }
-                    else {
-
-                        $(".warning").hide();
-                        $(".list-item-draft").append("<li>"
-                            + "<div class='body-content'>"
-                            + "<p class='content-list'>" + value + "</p>"
-                            + "<div>"
-                            + "<a class='action-complete' href='#'><i class='glyphicon glyphicon-ok icon-complete'></i></a>"
-                            + "<a class='action-remove' href='#'><i class='glyphicon glyphicon-remove icon-delete'></i></a>"
-                            + "</div>"
-                            + "</div>"
-                            + "<p class='date-list'>" + localdate + "</p>"
-                            //    + localtime
-                            + "</li>");
-                        $('input:text').val("");
-                        $('#appt-time').val("");
-                    }
-                }
-            });
-        </script>
-    </footer>
-
 </div>
+
+
+<footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsforex.js"></script>
+</footer>
+
+   <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to delete?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-delete" data-todo-id="">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
